@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="DUA en Acción: sitio educativo sobre el Diseño Universal para el Aprendizaje para docentes de primaria. Por Cinthya Roque, Cinthya's Hub.">
+<link rel="icon" href="logo-c.png">
+<title>DUA en Acción</title>
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800&display=swap">
+<style>
+/* Layout: barra fija con seis páginas; bandas a todo el ancho que alternan ciruela, rosa intenso y crema, con tipografía grande y elementos que se tocan (tarjetas que giran, pestañas de principios). */
+:root{
+  --bg:#FCF6F3; --surface:#FFFFFF; --soft:#F9EEF0; --band:#F7E6EA; --line:#EBD9DE;
+  --ink:#4A1E36; --muted:#6E5562; --accent:#9C3D63; --accent-hover:#7A2C4C; --on-accent:#FFFFFF;
+  --gold:#D4A24C; --plum:#4A1E36; --rose:#9C3D63; --on-dark:#FFFFFF; --on-dark-muted:#F0DCE4;
+  --p1:#9C3D63; --p2:#4A1E36; --p3:#D4A24C;
+  --shadow:0 10px 30px rgba(74,30,54,.10);
+  --f-display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-script:"Great Vibes", "Brush Script MT", cursive;
+  --r:22px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#1C0F17; --surface:#26141F; --soft:#2E1826; --band:#24121C; --line:#45293B;
+  --ink:#F6E8EE; --muted:#CDB4C0; --accent:#E99BBC; --accent-hover:#F4B9D1; --on-accent:#2A0E1D;
+  --gold:#D9AD5E; --plum:#2E1826; --rose:#7A2C4C; --on-dark:#FFFFFF; --on-dark-muted:#F0DCE4;
+  --p1:#B9467A; --p2:#5E2E4A; --p3:#D9AD5E;
+  --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#1C0F17; --surface:#26141F; --soft:#2E1826; --band:#24121C; --line:#45293B;
+  --ink:#F6E8EE; --muted:#CDB4C0; --accent:#E99BBC; --accent-hover:#F4B9D1; --on-accent:#2A0E1D;
+  --gold:#D9AD5E; --plum:#2E1826; --rose:#7A2C4C; --on-dark:#FFFFFF; --on-dark-muted:#F0DCE4;
+  --p1:#B9467A; --p2:#5E2E4A; --p3:#D9AD5E;
+  --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark;
+}
+*{box-sizing:border-box}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1.125rem;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.015em}
+h1{font-size:clamp(2.6rem,7vw,5rem)}
+h2{font-size:clamp(2rem,4.6vw,3.2rem)}
+h3{font-size:1.45rem;line-height:1.2}
+h1 em,h2 em{font-style:italic;font-weight:700;color:var(--accent)}
+.on-dark h1 em,.on-dark h2 em{color:var(--gold)}
+.mark{background:linear-gradient(transparent 62%, rgba(212,162,76,.45) 62%);padding:0 .1em}
+p{margin:0}
+a{color:var(--accent)}
+a:hover{color:var(--accent-hover)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.prose{max-width:62ch}
+.stack{display:flex;flex-direction:column;gap:1rem}
+.eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.on-dark .eyebrow{color:var(--gold)}
+.lead{font-size:clamp(1.15rem,2vw,1.35rem);line-height:1.55;color:var(--muted)}
+.on-dark .lead,.on-dark p{color:var(--on-dark-muted)}
+.muted{color:var(--muted)}
+
+/* Barra superior */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:1rem;padding-block:.55rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink);margin-right:auto}
+.logo-badge{width:44px;height:44px;border-radius:12px;background:#FCF6F3;display:grid;place-items:center;overflow:hidden;flex:none;border:1px solid var(--line)}
+.logo-badge img{width:40px;height:40px;object-fit:contain}
+.brand b{font-family:var(--f-display);font-size:1.25rem;display:block;line-height:1.1;font-weight:800}
+.brand small{display:block;font-size:.82rem;color:var(--muted)}
+.hub{font-family:var(--f-script);font-size:1.3em;color:var(--accent);font-weight:400}
+.nav-scroll{overflow-x:auto;max-width:100%;scrollbar-width:none}
+.nav-scroll::-webkit-scrollbar{display:none}
+nav ul{display:flex;gap:.2rem;list-style:none;margin:0;padding:0;white-space:nowrap}
+nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 .85rem;border-radius:999px;text-decoration:none;color:var(--muted);font-weight:700;font-size:.95rem}
+nav a:hover{color:var(--ink);background:var(--soft)}
+nav a[aria-current="page"]{background:var(--accent);color:var(--on-accent)}
+@media (max-width:760px){.topbar .wrap{gap:.3rem}.nav-scroll{width:100%}}
+
+/* Bandas */
+.band{padding-block:clamp(3rem,7vw,5.5rem)}
+.band.alt{background:var(--band)}
+.band.plum{background:var(--plum);color:var(--on-dark)}
+.band.rose{background:var(--rose);color:var(--on-dark)}
+.section-head{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2.2rem;max-width:760px}
+.grid{display:grid;gap:1.25rem}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.6rem;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:.8rem;min-width:0;color:var(--ink)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 1.6rem;border-radius:999px;background:var(--accent);color:var(--on-accent);text-decoration:none;border:0;font:inherit;font-weight:800;cursor:pointer;transition:background .15s,transform .15s}
+.btn:hover{background:var(--accent-hover);color:var(--on-accent);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.btn.ghost:hover{background:var(--soft);color:var(--accent-hover)}
+.on-dark .btn{background:#FFFFFF;color:#4A1E36}
+.on-dark .btn:hover{background:#F7E6EA;color:#4A1E36}
+.on-dark .btn.ghost{background:transparent;color:#FFFFFF;border-color:#F0DCE4}
+.on-dark .btn.ghost:hover{background:rgba(255,255,255,.1)}
+.btn.pending,.on-dark .btn.pending{background:transparent;color:inherit;opacity:.7;border:2px dashed currentColor;cursor:default;transform:none;font-weight:600}
+.btn-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+
+/* Hero */
+.hero-art{margin:0;border-radius:var(--r);overflow:hidden;background:#FFFFFF;box-shadow:0 20px 50px rgba(0,0,0,.3);max-width:100%}
+.hero-art img{display:block;width:100%;height:auto}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem;align-items:center;padding-block:clamp(3rem,8vw,6rem)}
+.hero h1,.hero .hero-q{color:#FFFFFF}
+.hero-q{font-size:clamp(2.6rem,7vw,5rem)}
+.hero .hero-title{font-size:clamp(1.3rem,2.4vw,1.7rem);color:#D4A24C;letter-spacing:0;line-height:1.2}
+.hero-title span{font-family:var(--f-body);font-size:.6em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F0DCE4;display:inline-block}
+.hero-doors{display:flex;flex-direction:column;gap:1rem;justify-self:center;width:100%;max-width:360px}
+.door-row{display:flex;gap:.6rem;align-items:flex-end}
+.door{flex:1;border-radius:60px 60px 8px 8px;display:grid;place-items:end center;padding-bottom:.7rem;font-weight:800;font-size:.85rem;color:#4A1E36;animation:rise .7s ease-out both}
+.door:nth-child(1){height:150px;background:#F0DCE4;animation-delay:.05s}
+.door:nth-child(2){height:190px;background:#D4A24C;animation-delay:.15s}
+.door:nth-child(3){height:165px;background:#C9678F;color:#FFFFFF;animation-delay:.25s}
+@keyframes rise{from{transform:translateY(16px);opacity:.4}to{transform:none;opacity:1}}
+.door-caption{font-family:var(--f-display);font-style:italic;font-size:1.25rem;color:#FFFFFF;text-align:center}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-doors{max-width:300px}}
+/* Banner de marca */
+.brand-banner{position:relative;background:#5E1F3A;container-type:inline-size}
+.brand-banner img{display:block;width:100%;height:auto;max-width:100%}
+.brand-banner .ribbon{position:absolute;left:0;right:0;top:2.6%;height:13.4%;display:flex;align-items:center;justify-content:center;gap:2cqw;padding:0 4cqw;color:#FFFFFF;text-align:center}
+.brand-banner .ribbon .site-title{color:#FFFFFF;margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(14px,3.6cqw,52px);letter-spacing:.01em;line-height:1}
+.brand-banner .ribbon span{font-family:var(--f-display);font-style:italic;font-size:clamp(11px,2.4cqw,34px);color:#F0DCE4;line-height:1}
+.brand-banner .ribbon i{width:1px;align-self:stretch;margin:22% 0;background:#D4A24C}
+@media (max-width:520px){.brand-banner .ribbon span,.brand-banner .ribbon i{display:none}}
+.video-frame{margin:0;border-radius:var(--r);overflow:hidden;background:#000;box-shadow:0 16px 40px rgba(0,0,0,.3);max-width:100%}
+.video-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.video-note{font-size:.9rem;margin-top:.6rem}
+.video-wrap{max-width:980px;width:100%}
+.pull{margin:0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:var(--r);padding:clamp(1.5rem,4vw,2.5rem);display:flex;flex-direction:column;gap:1rem}
+.pull p{font-family:var(--f-display);font-style:italic;font-weight:700;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.25;color:#FFFFFF!important}
+.pull cite{font-style:normal;font-size:.95rem;color:var(--on-dark-muted)}
+
+/* Infografía (pieza impresa: colores fijos de marca en ambos temas) */
+.info{margin:0;background:#FCF6F3;color:#4A1E36;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid #EBD9DE;display:flex;flex-direction:column;max-width:100%;min-width:0}
+.info-head{background:#4A1E36;color:#FFFFFF;padding:1.4rem 1.5rem 1.3rem;display:flex;flex-direction:column;gap:.25rem;position:relative;overflow:hidden}
+.info-head::after{content:"";position:absolute;right:-50px;top:-50px;width:170px;height:170px;border-radius:50%;border:1.5px solid rgba(212,162,76,.6)}
+.info-kicker{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#D4A24C}
+.info-title{font-family:var(--f-display);font-weight:800;font-size:clamp(1.7rem,3.6vw,2.3rem);line-height:1.05;color:#FFFFFF}
+.info-sub{font-family:var(--f-display);font-style:italic;color:#F0DCE4;font-size:1.05rem}
+.info-thesis{padding:1rem 1.5rem;background:#F7E6EA;font-size:1.02rem;line-height:1.4;border-bottom:1px solid #EBD9DE;color:#4A1E36}
+.info-thesis b{color:#9C3D63}
+.info-rows{display:flex;flex-direction:column;gap:.8rem;padding:1.1rem 1.1rem .9rem}
+.info-p{display:grid;grid-template-columns:3.2rem 1fr;gap:.9rem;align-items:start;background:#FFFFFF;border-radius:16px;padding:.9rem 1rem;border:1px solid #EBD9DE}
+.info-n{width:3.2rem;height:3.2rem;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:1.6rem}
+.ip1 .info-n{background:#9C3D63;color:#FFFFFF}
+.ip2 .info-n{background:#4A1E36;color:#FFFFFF}
+.ip3 .info-n{background:#D4A24C;color:#4A1E36}
+.info-body{min-width:0;display:flex;flex-direction:column;gap:.2rem}
+.info-q{font-family:var(--f-display);font-style:italic;font-weight:700;font-size:1.35rem;line-height:1.1;color:#4A1E36}
+.ip1 .info-q{color:#9C3D63}
+.info-name{font-weight:800;font-size:.95rem;color:#4A1E36}
+.info-name span{font-weight:500;color:#6E5562}
+.info-body ul{list-style:none;margin:.35rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.35rem}
+.info-body li{font-size:.84rem;font-weight:600;background:#F9EEF0;color:#4A1E36;border-radius:999px;padding:.2rem .65rem}
+.info-goal{margin:0 1.1rem;background:#D4A24C;color:#4A1E36;border-radius:14px;padding:.85rem 1rem;font-size:.95rem;line-height:1.4}
+.info-foot{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;padding:.9rem 1.5rem 1.1rem;font-size:.78rem;color:#6E5562}
+.info-brand{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--f-display);font-weight:700;font-size:.9rem;color:#4A1E36}
+.info-brand img{width:26px;height:20px;object-fit:contain}
+
+.info-img{margin:0;display:flex;flex-direction:column;gap:.6rem;min-width:0;max-width:100%}
+.info-open{border:0;padding:0;background:none;cursor:zoom-in;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:block;width:100%}
+.info-open img{display:block;width:100%;height:auto}
+.info-img figcaption{font-size:.9rem;color:var(--muted);text-align:center}
+.listen{background:#D4A24C;border:3px solid #F7E6EA;border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;gap:1.1rem;min-width:0;box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.listen-top{display:flex;align-items:center;gap:1rem}
+.listen-play{flex:none;width:76px;height:76px;border-radius:50%;background:#4A1E36;display:grid;place-items:center;transition:transform .15s;box-shadow:0 0 0 0 rgba(74,30,54,.5);animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,30,54,.5)}70%{box-shadow:0 0 0 16px rgba(74,30,54,0)}100%{box-shadow:0 0 0 0 rgba(74,30,54,0)}}
+.listen-play:hover{transform:scale(1.06)}
+.listen-play svg{width:32px;height:32px;fill:#FFFFFF;margin-left:5px}
+.listen-show{font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#4A1E36!important}
+.listen-title{font-family:var(--f-display);font-weight:800;font-size:clamp(1.35rem,2.8vw,1.75rem);line-height:1.15;color:#4A1E36!important}
+.listen-wave{display:flex;align-items:center;gap:4px;height:48px}
+.listen-wave span{flex:1;border-radius:3px;background:#4A1E36}
+.listen-wave span:nth-child(even){background:#FFFFFF}
+.listen-wave span:nth-child(3n){height:70%}.listen-wave span:nth-child(3n+1){height:40%}.listen-wave span:nth-child(3n+2){height:90%}
+.listen-wave span:nth-child(5n){height:55%}.listen-wave span:nth-child(7n){height:100%}
+.listen .btn,.on-dark .listen .btn{align-self:flex-start;background:#4A1E36;color:#FFFFFF}
+.listen .btn:hover,.on-dark .listen .btn:hover{background:#7A2C4C;color:#FFFFFF}
+.listen-note{font-size:.88rem;color:#4A1E36!important}
+.reel{margin:0;position:relative;justify-self:center;width:min(100%,330px);aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000;border:4px solid #D4A24C;box-shadow:0 24px 50px rgba(0,0,0,.4);max-width:100%}
+.reel video{display:block;width:100%;height:100%;object-fit:cover}
+.reel-ctrl{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:8px;align-items:center}
+.reel-btn{min-height:44px;min-width:44px;border-radius:999px;border:0;background:rgba(74,30,54,.85);color:#FFFFFF;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0 .9rem}
+.reel-btn svg{width:20px;height:20px;fill:#FFFFFF}
+.reel-sound{background:#D4A24C;color:#4A1E36}
+.reel-sound[aria-pressed="true"]{background:rgba(74,30,54,.85);color:#FFFFFF}
+.listen-play{border:0;cursor:pointer}
+.listen-play.playing{animation:none}
+.listen-wave span.done{background:#4A1E36!important;opacity:1}
+.listen-wave span{opacity:.55}
+.listen-wave span:nth-child(odd){background:#4A1E36}
+.pod-seek{width:100%;accent-color:#4A1E36;margin:0;cursor:pointer}
+.listen-time{display:flex;justify-content:space-between;font-size:.9rem;font-weight:700;color:#4A1E36;font-variant-numeric:tabular-nums;margin-top:-.6rem}
+.listen-actions{display:flex;flex-wrap:wrap;gap:.5rem}
+.pod-btn{min-height:44px;padding:0 1rem;border-radius:999px;border:2px solid #4A1E36;background:transparent;color:#4A1E36;font:inherit;font-weight:700;cursor:pointer}
+.pod-btn:hover{background:rgba(255,255,255,.35)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.fs-btn{flex:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center}
+.fs-btn svg{width:20px;height:20px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fs-btn:hover{border-color:var(--accent)}
+.fs-btn[hidden]{display:none}
+.pod-banner{margin:0;background:#FCF6F3;border-bottom:4px solid #D4A24C}
+.pod-banner img{display:block;width:100%;height:auto;max-width:100%}
+.author{display:flex;align-items:center;gap:.9rem}
+.author img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid #D4A24C;flex:none}
+.author-name{font-family:var(--f-display);font-weight:700;font-size:1.15rem;color:#FFFFFF!important;line-height:1.2}
+.author-role{font-size:.9rem;color:var(--on-dark-muted)}
+.pod-visual{position:relative;display:flex;flex-direction:column;min-width:0}
+.pod-photo{display:block;width:100%;height:auto;max-width:100%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 88%,transparent 100%),linear-gradient(to bottom,#000 80%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 88%,transparent 100%),linear-gradient(to bottom,#000 80%,transparent 100%);
+  mask-composite:intersect}
+.pod-visual .listen{position:relative;z-index:1;margin-top:-34px;margin-left:10%}
+@media (max-width:860px){.pod-visual .listen{margin-left:0;margin-top:-24px}}
+@media (max-width:760px){.fs-btn,.fs-btn:not([hidden]){display:none}}
+.story-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(1.5rem,5vw,3.5rem);align-items:start}
+@media (max-width:760px){.story-grid{grid-template-columns:1fr}}
+.story-photo{margin:0;display:flex;flex-direction:column;align-items:center;gap:.8rem;text-align:center}
+.story-photo img{width:min(200px,60vw);height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;border:5px solid #D4A24C;box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.story-photo figcaption{font-family:var(--f-display);font-weight:700;font-size:1.15rem;color:#FFFFFF}
+.story-photo figcaption span{font-family:var(--f-body);font-weight:500;font-size:.9rem;color:#F0DCE4}
+.story h2{color:#FFFFFF}
+.demo-vid{display:block;width:100%;height:auto;aspect-ratio:870/720;border-radius:14px;border:1px solid var(--line);background:#FCF6F3}
+.hero-art .demo-vid{border:0;border-radius:0}
+.demo-cap{background:#FFFFFF;color:#4A1E36;font-size:.9rem;font-weight:600;padding:.6rem 1rem;text-align:center}
+.class-cast{margin-bottom:1.6rem}
+.cast-label{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem}
+.cast{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.cast-card{display:grid;grid-template-columns:44px 1fr;gap:.8rem;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem 1rem}
+.cast-av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.2rem;background:var(--band);color:var(--accent)}
+.cast-card b{display:block;font-family:var(--f-display);font-size:1.1rem}
+.cast-card span{font-size:.92rem;color:var(--muted);line-height:1.4;display:block}
+.design-toggle{display:inline-flex;flex-wrap:wrap;gap:.4rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.35rem;margin-bottom:1rem}
+.dt-btn{min-height:48px;padding:0 1.3rem;border-radius:999px;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:800;cursor:pointer}
+.dt-btn[aria-pressed="true"][data-mode="trad"]{background:var(--ink);color:var(--bg)}
+.dt-btn[aria-pressed="true"][data-mode="dua"]{background:var(--accent);color:var(--on-accent)}
+.dt-summary{font-size:1.05rem;margin-bottom:1.4rem;padding:.9rem 1.1rem;border-radius:14px;background:var(--soft);border:1px solid var(--line)}
+.moments{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.moment{display:grid;grid-template-columns:3rem 1fr;gap:1rem;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.2rem 1.3rem;transition:border-color .2s}
+.m-n{width:3rem;height:3rem;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:1.3rem;background:var(--soft);color:var(--ink)}
+.m-body{min-width:0;display:flex;flex-direction:column;gap:.45rem}
+.m-body h3{font-size:1.25rem}
+.m-bar{color:var(--muted)}
+.m-bar b{color:var(--ink)}
+.m-who{font-size:.92rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.who-chip{display:inline-flex;align-items:center;min-height:28px;padding:0 .7rem;border-radius:999px;font-weight:700;font-size:.88rem}
+.who-chip.out{background:var(--soft);color:var(--ink);border:1px dashed var(--muted);text-decoration:line-through;text-decoration-thickness:1.5px}
+.who-chip.in{background:#D4A24C;color:#4A1E36}
+.moments[data-mode="trad"] .m-dua,.moments[data-mode="dua"] .m-trad{display:none}
+.moments[data-mode="dua"] .moment{border-color:var(--accent)}
+.moments[data-mode="dua"] .m-n{background:var(--accent);color:var(--on-accent)}
+.dt-rule{margin-top:1.4rem;font-family:var(--f-display);font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.6vw,1.5rem);line-height:1.3}
+.compare .barrier{display:block;margin-top:.5rem;padding-top:.5rem;border-top:1px dashed var(--line);font-size:.92rem;color:var(--ink)}
+.compare .barrier b{color:var(--accent)}
+.compare .new{font-weight:500;line-height:1.5}
+/* Ebook */
+.toc{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.toc li{padding-left:1.4rem;position:relative}
+.toc li::before{content:"";position:absolute;left:0;top:.6em;width:.55rem;height:.55rem;border-radius:50%;background:var(--gold)}
+.ebook-cover{border:0;padding:0;background:none;cursor:zoom-in;justify-self:center;max-width:380px;width:100%;border-radius:10px;box-shadow:0 24px 50px rgba(74,30,54,.28);transform:rotate(-2deg);transition:transform .25s}
+.ebook-cover:hover{transform:rotate(0) translateY(-4px)}
+.ebook-cover img{display:block;width:100%;height:auto;border-radius:10px}
+.pages{display:grid;gap:1rem;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:760px){.pages{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.page-thumb{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:.6rem .6rem .8rem;cursor:zoom-in;display:flex;flex-direction:column;gap:.6rem;font:inherit;color:var(--ink);font-weight:700;text-align:center;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.page-thumb:hover{transform:translateY(-3px);border-color:var(--accent)}
+.page-thumb img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line)}
+.viewer{position:fixed;inset:0;z-index:50;background:rgba(28,10,20,.82);display:grid;place-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.viewer[hidden]{display:none}
+.viewer-box{background:var(--surface);border-radius:var(--r);padding:1rem;display:flex;flex-direction:column;gap:.8rem;max-height:100%;width:min(640px,100%);min-height:0}
+.viewer-bar,.viewer-nav{display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+.viewer-bar span{font-family:var(--f-display);font-weight:700;font-size:1.15rem}
+.viewer-box img{display:block;width:100%;height:auto;max-height:calc(100vh - 190px);object-fit:contain;border-radius:8px;border:1px solid var(--line);background:#FFFFFF;min-height:0}
+/* Hero con fondo amarillo */
+.hero-sun{background:#FFC300 url("hero-bg.png") center/cover no-repeat;color:#4A1E36}
+.hero-sun .eyebrow{color:#7A2C4C}
+.hero-sun h1{color:#4A1E36}
+.hero-sun h1 em{color:#9C3D63}
+.hero-sun .lead{color:#4A1E36}
+.hero-sun .btn{background:#4A1E36;color:#FFFFFF}
+.hero-sun .btn:hover{background:#7A2C4C;color:#FFFFFF}
+.hero-sun .btn.ghost{background:transparent;color:#4A1E36;border-color:#4A1E36}
+.hero-sun .btn.ghost:hover{background:rgba(255,255,255,.35);color:#4A1E36}
+.hero-sun .door:nth-child(1){background:#FFFFFF;color:#4A1E36}
+.hero-sun .door:nth-child(2){background:#4A1E36;color:#FFFFFF}
+.hero-sun .door:nth-child(3){background:#9C3D63;color:#FFFFFF}
+.hero-sun .door-caption{color:#4A1E36}
+
+/* Tarjetas que giran */
+.flip-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.flip{perspective:1200px;background:none;border:0;padding:0;font:inherit;text-align:left;cursor:pointer;color:inherit;min-height:260px;display:grid}
+.flip-inner{position:relative;display:grid;transition:transform .6s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d}
+.flip[aria-pressed="true"] .flip-inner{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;gap:.8rem}
+.face.front{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.face.back{background:var(--accent);color:var(--on-accent);transform:rotateY(180deg)}
+.face .label{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.face.front .label{color:var(--muted)}
+.face .big{font-family:var(--f-display);font-weight:700;font-size:1.45rem;line-height:1.25}
+.face .hint{margin-top:auto;font-weight:700;color:var(--accent);font-size:.95rem}
+.face.back .hint{color:var(--on-accent);opacity:.85}
+@media (prefers-reduced-motion: reduce){.flip-inner{transform:none!important}.face.back{transform:none}.flip[aria-pressed="false"] .back,.flip[aria-pressed="true"] .front{visibility:hidden}}
+
+/* Inicio: público y objetivos */
+.who{display:grid;gap:.8rem;grid-template-columns:1fr}
+.who .card{display:grid;grid-template-columns:52px 1fr;column-gap:1rem;row-gap:.15rem;align-items:start;padding:1.1rem 1.3rem}
+.who .card .ico{grid-row:span 2}
+.btn[hidden]{display:none}
+@media (max-width:600px){.flip{min-height:190px}}
+.who .ico{width:52px;height:52px;border-radius:16px;background:var(--soft);display:grid;place-items:center}
+.who svg{width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.objectives{list-style:none;padding:0;margin:0;display:grid;gap:1.1rem;counter-reset:o}
+.objectives li{counter-increment:o;display:grid;grid-template-columns:3.4rem 1fr;gap:1rem;align-items:center;font-size:1.15rem}
+.objectives li::before{content:counter(o);font-family:var(--f-display);font-weight:900;font-size:3rem;line-height:1;color:var(--gold)}
+.go{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.go a{text-decoration:none}
+.go a .card{height:100%;transition:transform .15s,border-color .15s}
+.go a:hover .card{transform:translateY(-4px);border-color:var(--accent)}
+.go .arrow{margin-top:auto;font-weight:800;color:var(--accent)}
+
+/* Principios con pestañas */
+.tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.2rem}
+.tab{min-height:56px;padding:0 1.3rem;border-radius:999px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem}
+.tab .n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-size:.95rem}
+.tab[aria-selected="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.panel{border-radius:var(--r);padding:clamp(1.6rem,4vw,3rem);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:2rem}
+@media (max-width:860px){.panel{grid-template-columns:1fr}}
+.panel.c1{background:var(--p1);color:#FFFFFF}
+.panel.c2{background:var(--p2);color:#FFFFFF}
+.panel.c3{background:var(--p3);color:#4A1E36}
+.panel .q{font-family:var(--f-display);font-style:italic;font-weight:700;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05}
+.panel .net{font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.panel p{font-size:1.15rem}
+.panel ul{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.panel li{background:rgba(255,255,255,.14);border-radius:14px;padding:.75rem 1rem;font-weight:600}
+.panel.c3 li{background:rgba(255,255,255,.35)}
+.panel .tip{border-top:1px solid currentColor;padding-top:1rem;margin-top:.4rem;opacity:.95}
+.n1{background:#9C3D63;color:#FFFFFF}.n2{background:#4A1E36;color:#FFFFFF}.n3{background:#D4A24C;color:#4A1E36}
+
+/* Comparación */
+.compare{display:grid;gap:.8rem}
+.compare .row{display:grid;grid-template-columns:11rem minmax(0,1fr) minmax(0,1fr);gap:.8rem;align-items:stretch}
+.compare .head{font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.compare .k{font-weight:800;align-self:center}
+.compare .old{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:.9rem 1.1rem;color:var(--muted)}
+.compare .new{background:var(--accent);color:var(--on-accent);border-radius:16px;padding:.9rem 1.1rem;font-weight:600}
+@media (max-width:760px){.compare .row{grid-template-columns:1fr}.compare .row.head-row{display:none}.compare .old::before{content:"Diseño tradicional · ";font-weight:800}.compare .new::before{content:"Con DUA · ";font-weight:800}.compare .k{margin-top:.8rem;font-family:var(--f-display);font-size:1.25rem}}
+
+.quote{font-family:var(--f-display);font-style:italic;font-weight:700;font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.25}
+.aside{background:var(--soft);border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;gap:.6rem}
+.aside strong{font-family:var(--f-display);font-size:1.3rem}
+
+/* Espacios para medios */
+.media-slot{margin:0;border:2px dashed var(--line);border-radius:var(--r);background:var(--surface);min-height:220px;display:grid;place-items:center;text-align:center;padding:1.5rem;color:var(--muted);max-width:100%}
+.media-slot b{color:var(--ink);font-family:var(--f-display);font-size:1.2rem;display:block}
+.media-slot svg{width:44px;height:44px;stroke:var(--accent);fill:none;stroke-width:1.6;margin:0 auto .5rem;display:block}
+.media-slot.wide{aspect-ratio:16/9;min-height:0}
+.media-slot.tall{aspect-ratio:3/4;min-height:0}
+.on-dark .media-slot{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3);color:var(--on-dark-muted)}
+.on-dark .media-slot b{color:#FFFFFF}
+.on-dark .media-slot svg{stroke:var(--gold)}
+
+.refs{font-size:.95rem;color:var(--muted)}
+.refs p{padding-left:1.5rem;text-indent:-1.5rem}
+
+/* Podcast */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{display:inline-flex;align-items:center;min-height:34px;padding:0 .9rem;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);font-size:.92rem;font-weight:700;color:#FFFFFF}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:1.2rem}
+.steps li{display:grid;grid-template-columns:3rem 1fr;gap:1rem;align-items:start}
+.steps .n{font-family:var(--f-display);font-weight:900;font-size:2.4rem;line-height:1;color:var(--gold)}
+.steps b{font-family:var(--f-display);font-size:1.25rem;display:block}
+.reflect label{font-size:.95rem}
+.reflect textarea{width:100%;min-height:120px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#FFFFFF;font:inherit;padding:.9rem 1rem;resize:vertical}
+.reflect textarea::placeholder{color:#E6CFD9}
+
+/* Ebook y app */
+.product{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+@media (max-width:860px){.product{grid-template-columns:1fr}}
+.features{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
+.features li{display:grid;grid-template-columns:28px 1fr;gap:.8rem;align-items:start}
+.features svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:2.2;margin-top:.2rem}
+.bonus{display:inline-flex;align-self:flex-start;align-items:center;gap:.5rem;background:var(--gold);color:#4A1E36;font-weight:800;border-radius:999px;padding:.35rem 1rem;font-size:.9rem}
+.price{font-family:var(--f-display);font-weight:800;font-size:2.4rem;color:#FFFFFF}
+.price-note{font-family:var(--f-body);font-size:1rem;font-weight:600;color:var(--on-dark-muted)}
+
+/* Checklist */
+.checklist{display:grid;gap:1.25rem}
+.check-group{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.5rem;display:flex;flex-direction:column;gap:.4rem}
+.check-group header{display:flex;align-items:center;gap:.8rem;justify-content:space-between;flex-wrap:wrap;margin-bottom:.3rem}
+.check-group header div{display:flex;align-items:center;gap:.7rem}
+.check-group .dot{width:2.2rem;height:2.2rem;border-radius:50%;display:grid;place-items:center;font-weight:800;font-family:var(--f-display)}
+.meter{display:flex;gap:4px}
+.meter span{width:30px;height:9px;border-radius:5px;background:var(--line)}
+.meter span.on{background:var(--accent)}
+.check{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;padding:.6rem .2rem;border-top:1px solid var(--line);cursor:pointer}
+.check:first-of-type{border-top:0}
+.check input{width:24px;height:24px;margin-top:.15rem;accent-color:var(--accent);cursor:pointer}
+.result{border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;gap:.5rem}
+.result .score{font-family:var(--f-display);font-size:3.4rem;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.small-btn{min-height:44px;padding:0 1.1rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:700;cursor:pointer}
+.small-btn:hover{border-color:var(--accent);color:var(--accent)}
+.sticky-col{position:sticky;top:6rem}
+@media (max-width:860px){.sticky-col{position:static}}
+
+/* Talleres */
+.facts{display:grid;gap:.7rem;margin:0}
+.facts div{display:grid;grid-template-columns:7rem 1fr;gap:.5rem;border-bottom:1px solid var(--line);padding-bottom:.6rem}
+.facts dt{font-weight:800;color:var(--muted);font-size:.9rem}
+.facts dd{margin:0}
+.copy-line{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.copy-line code{font-family:var(--f-body);font-weight:700;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:.45rem .8rem;user-select:all}
+
+footer{background:var(--plum);color:var(--on-dark)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;padding-block:2.2rem}
+footer .f-brand{display:flex;align-items:center;gap:.8rem}
+footer .f-brand b{font-family:var(--f-display);font-size:1.2rem}
+footer .hub{color:var(--gold)}
+footer p{font-size:.92rem;color:var(--on-dark-muted)}
+footer .credit{max-width:46ch}
+</style>
+</head>
+<body>
+
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="DUA en Acción, ir al inicio">
+      <span class="logo-badge"><img src="logo-c.png" alt=""></span>
+      <span><b>DUA en Acción</b><small>por Cinthya's <span class="hub">Hub</span></small></span>
+    </a>
+    <div class="nav-scroll">
+      <nav aria-label="Páginas del sitio">
+        <ul>
+          <li><a href="#inicio" data-nav="inicio">Inicio</a></li>
+          <li><a href="#tema" data-nav="tema">El tema</a></li>
+          <li><a href="#podcast" data-nav="podcast">Podcast</a></li>
+          <li><a href="#app" data-nav="app">Ebook y app</a></li>
+          <li><a href="#recursos" data-nav="recursos">Recursos gratis</a></li>
+          <li><a href="#talleres" data-nav="talleres">Talleres</a></li>
+        </ul>
+      </nav>
+    </div>
+    <button type="button" class="fs-btn" id="fs-btn" hidden aria-label="Ver en pantalla completa" title="Pantalla completa"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="fs-icon" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= PÁGINA 1 · INICIO ================= -->
+<section data-view="inicio">
+  <div class="band plum on-dark hero" style="padding-block:0">
+    <div class="wrap">
+      <div class="stack" style="gap:1.4rem">
+        <h1 class="hero-title">DUA en Acción <span>· Diseño Universal para el Aprendizaje</span></h1>
+        <h2 class="hero-q">¿Qué es el <em>DUA</em>?</h2>
+        <p class="lead">Hola, soy Cinthya Roque, docente de primaria y creadora de experiencias de aprendizaje. Este sitio es para quienes alguna vez pensaron "este niño no quiere aprender" y sospechan que la respuesta está en otro lado.</p>
+        <div class="btn-row">
+          <a class="btn" href="#tema">Descubre el DUA</a>
+          <a class="btn ghost" href="#podcast">Escucha el podcast</a>
+        </div>
+      </div>
+      <figure class="reel">
+        <video id="reel" src="reel-dua.mp4" poster="reel-poster.jpg" muted loop playsinline preload="metadata" width="720" height="1280" aria-label="Reel: DUA no es hacer 25 actividades distintas"></video>
+        <div class="reel-ctrl">
+          <button type="button" class="reel-btn" id="reel-play" aria-label="Pausar el reel"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="reel-play-icon" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+          <button type="button" class="reel-btn reel-sound" id="reel-sound" aria-pressed="false">Activar sonido</button>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Lo que todavía pasa en muchas aulas</span>
+        <h2>¿Te suena <em>alguna</em> de estas?</h2>
+        <p class="lead">Toca cada tarjeta para ver lo que propone el DUA.</p>
+      </div>
+      <div class="flip-grid">
+        <button class="flip" type="button" aria-pressed="false"><span class="flip-inner">
+          <span class="face front"><span class="label">En muchas aulas</span><span class="big">Todos leen el mismo texto, en silencio y al mismo ritmo.</span><span class="hint">Ver qué propone el DUA →</span></span>
+          <span class="face back"><span class="label">Con DUA</span><span class="big">El mismo texto llega con audio, imágenes o en una versión más corta. La meta no cambia.</span><span class="hint">← Volver</span></span>
+        </span></button>
+        <button class="flip" type="button" aria-pressed="false"><span class="flip-inner">
+          <span class="face front"><span class="label">En muchas aulas</span><span class="big">El examen escrito es la única forma de saber qué aprendieron.</span><span class="hint">Ver qué propone el DUA →</span></span>
+          <span class="face back"><span class="label">Con DUA</span><span class="big">El examen sigue, pero no es la única evidencia. Si la meta no es escribir, también pueden mostrarlo con un dibujo, un audio o un organizador.</span><span class="hint">← Volver</span></span>
+        </span></button>
+        <button class="flip" type="button" aria-pressed="false"><span class="flip-inner">
+          <span class="face front"><span class="label">En muchas aulas</span><span class="big">Adaptamos la clase después de que el estudiante se queda atrás.</span><span class="hint">Ver qué propone el DUA →</span></span>
+          <span class="face back"><span class="label">Con DUA</span><span class="big">Anticipamos las barreras cuando planificamos, antes de que aparezcan.</span><span class="hint">← Volver</span></span>
+        </span></button>
+        <button class="flip" type="button" aria-pressed="false"><span class="flip-inner">
+          <span class="face front"><span class="label">En muchas aulas</span><span class="big">Decimos "no quiere aprender" cuando un estudiante no participa.</span><span class="hint">Ver qué propone el DUA →</span></span>
+          <span class="face back"><span class="label">Con DUA</span><span class="big">Nos preguntamos qué barrera tiene la actividad y le damos una razón para participar.</span><span class="hint">← Volver</span></span>
+        </span></button>
+        <button class="flip" type="button" aria-pressed="false"><span class="flip-inner">
+          <span class="face front"><span class="label">En muchas aulas</span><span class="big">Los apoyos son solo para el estudiante con diagnóstico.</span><span class="hint">Ver qué propone el DUA →</span></span>
+          <span class="face back"><span class="label">Con DUA</span><span class="big">Los apoyos están disponibles para todos, y cada uno toma el que necesita.</span><span class="hint">← Volver</span></span>
+        </span></button>
+        <button class="flip" type="button" aria-pressed="false"><span class="flip-inner">
+          <span class="face front"><span class="label">En muchas aulas</span><span class="big">Explicamos el tema de una sola forma: la que a nosotros nos funciona.</span><span class="hint">Ver qué propone el DUA →</span></span>
+          <span class="face back"><span class="label">Con DUA</span><span class="big">Explicamos de varias formas para que cada estudiante encuentre su entrada al tema.</span><span class="hint">← Volver</span></span>
+        </span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="band rose on-dark story">
+    <div class="wrap story-grid">
+      <figure class="story-photo">
+        <img src="cinthya.jpg" alt="Cinthya Roque" width="240" height="240" loading="lazy">
+        <figcaption>Cinthya Roque<br><span>Docente de primaria</span></figcaption>
+      </figure>
+      <div class="stack prose" style="gap:1.1rem">
+        <span class="eyebrow">Por qué hago esto</span>
+        <h2>Una lectura, una silla <em>y una niña</em></h2>
+        <p>En mi clase hay una niña que no se queda quieta. Se mueve, dibuja, conversa… hace de todo menos lo que le pido. Un día nos tocó una lectura larga y un poco compleja. Apenas la vi, supe que ella no la iba a leer. Y así fue: charlaba con sus compañeras, dibujaba, se paraba.</p>
+        <p>Planifico con DUA todos los días, pero esa vez no alcancé a preparar una versión más sencilla para ella. Entonces hice lo que tenía a mano: me senté a su lado y la leímos juntas.</p>
+        <p>Avanzamos despacio, porque cada cinco palabras tenía algo que contarme. Pero estaba atenta, estaba aprendiendo, y se le notaba feliz de tenerme ahí.</p>
+        <p class="quote" style="color:#FFFFFF">No le faltaban ganas. Le faltaba una forma de entrar al texto.</p>
+        <p>A veces esa puerta es un audio o un dibujo. Y a veces es alguien que se sienta a tu lado. Por eso comparto lo que hago: para que más docentes encuentren esas puertas antes de que un estudiante se quede afuera.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="band alt">
+    <div class="wrap split" style="align-items:start">
+      <div class="stack prose">
+        <span class="eyebrow">Sobre este sitio</span>
+        <h2>Un sitio para <em>mirar distinto</em> tu aula</h2>
+        <p>El Diseño Universal para el Aprendizaje (DUA) nos invita a pensar en la diversidad del grupo desde el momento en que planificamos, y no recién cuando aparecen las dificultades.</p>
+        <p>Aquí encontrarás explicaciones sencillas, ejemplos reales de clase, una infografía, un video, una herramienta interactiva y un podcast para que conozcas el DUA y te animes a llevarlo a tu aula.</p>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">¿Para quién es?</span>
+        <div class="who">
+          <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg></span><b>Docentes de primaria</b><span class="muted">De cualquier asignatura: lenguaje, matemáticas, ciencias o inglés.</span></div>
+          <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M12 20c0-3 2-5 4-5s6 2 6 5"/></svg></span><b>Maestras de apoyo</b><span class="muted">Y acompañantes que trabajan junto al docente de aula.</span></div>
+          <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><b>Futuros docentes</b><span class="muted">Estudiantes de profesorado y licenciatura en educación.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap split" style="align-items:start">
+      <div class="stack prose">
+        <span class="eyebrow">Lo que te llevas</span>
+        <h2>¿Qué vas a <em>aprender</em>?</h2>
+        <p class="lead">Al recorrer el sitio vas a descubrir qué es el DUA y por qué hace la diferencia en aulas diversas, conocer sus tres principios con ejemplos concretos, ver cómo se aplica en una clase real de primaria y llevarte ideas que puedes usar desde tu próxima clase.</p>
+      </div>
+      <div class="stack">
+        <h3>Objetivos de aprendizaje</h3>
+        <p class="muted">Al terminar tu recorrido podrás:</p>
+        <ol class="objectives">
+          <li><span>Explicar con tus propias palabras qué es el DUA y para qué sirve.</span></li>
+          <li><span>Identificar los tres principios del DUA: implicación, representación, y acción y expresión.</span></li>
+          <li><span>Reconocer estrategias DUA en ejemplos de clases de primaria.</span></li>
+          <li><span>Proponer al menos una estrategia DUA para una clase que vayas a dar.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="band alt">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Recorre el sitio</span><h2>¿Por dónde <em>empiezo</em>?</h2></div>
+      <div class="go">
+        <a href="#tema"><div class="card"><h3>El tema</h3><p class="muted">Qué es el DUA, sus tres principios y la misma clase con dos diseños.</p><span class="arrow">Explorar →</span></div></a>
+        <a href="#podcast"><div class="card"><h3>Podcast</h3><p class="muted">Un episodio corto para escuchar y pensar en tu propia aula.</p><span class="arrow">Escuchar →</span></div></a>
+        <a href="#recursos"><div class="card"><h3>Recursos gratis</h3><p class="muted">Revisa tu clase con la lista DUA y descarga materiales.</p><span class="arrow">Ver recursos →</span></div></a>
+        <a href="#talleres"><div class="card"><h3>Talleres</h3><p class="muted">Planifica con DUA en compañía de otros docentes.</p><span class="arrow">Inscribirme →</span></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PÁGINA 2 · DESARROLLO DEL TEMA ================= -->
+<section data-view="tema" hidden>
+  <div class="band plum on-dark">
+    <div class="wrap stack" style="gap:1.8rem">
+      <div class="stack" style="gap:1rem;max-width:780px">
+        <span class="eyebrow">Desarrollo del tema</span>
+        <h1>El estudiante promedio <em>no existe</em></h1>
+        <p class="lead">Dale play antes de seguir. En tres minutos vas a ver cómo se ve el DUA dentro de un aula real.</p>
+      </div>
+      <div class="video-wrap">
+        <figure class="video-frame" id="slot-video">
+          <video controls playsinline preload="metadata" poster="video-poster.jpg" width="1280" height="720" aria-label="Video: el DUA en el aula">
+            <source src="video-dua.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <p class="video-note">Video: el DUA en el aula · 3 min 20 s · con subtítulos</p>
+      </div>
+      <div class="stack prose" style="gap:1rem">
+        <p class="lead">En cualquier aula hay estudiantes que leen con facilidad y otros que necesitan escuchar, niñas que se concentran mejor en movimiento, niños que se expresan mejor dibujando que escribiendo. Esa variedad es lo normal.</p>
+        <p>Por eso importa el DUA. Cuando planificamos para un estudiante "promedio", dejamos fuera a muchos. Cuando planificamos con opciones desde el inicio, el aprendizaje se abre para todo el grupo y hacemos menos adaptaciones de último momento.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apartado 1 -->
+  <div class="band">
+    <div class="wrap split" style="align-items:start">
+      <div class="stack prose">
+        <span class="eyebrow">Apartado 1</span>
+        <h2>¿Qué es el <em>DUA</em>?</h2>
+        <p>El Diseño Universal para el Aprendizaje es un marco para planificar la enseñanza. Lo desarrolló el centro CAST, en Estados Unidos, a partir de investigaciones sobre cómo aprende el cerebro y cómo influye el entorno en ese aprendizaje.</p>
+        <p class="quote"><span class="mark">La dificultad muchas veces no está en el estudiante, sino en una clase que ofrece un solo camino.</span></p>
+        <p>Si diseñamos con varios caminos para acceder a la información, participar y demostrar lo aprendido, más estudiantes llegan a la meta. El DUA no es un programa aparte para estudiantes con necesidades educativas: es una forma de planificar para todo el grupo.</p>
+      </div>
+      <div class="aside">
+        <strong>La idea viene de la arquitectura</strong>
+        <p>Una rampa en la entrada de un edificio se pensó para personas en silla de ruedas. Hoy la usan también quienes empujan un coche de bebé, llevan una maleta o tienen una pierna lastimada. Lo que se diseña para algunos termina sirviendo a todos.</p>
+        <p class="muted">El DUA aplica esa misma lógica al aula: anticipar las barreras desde el diseño, en lugar de construir la rampa después.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apartado 2 -->
+  <div class="band alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Apartado 2</span>
+        <h2>Los tres <em>principios</em></h2>
+        <p class="lead">Cada principio responde a una pregunta sobre cómo aprendemos. Elige uno para explorarlo.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Principios del DUA">
+        <button class="tab" role="tab" id="t1" aria-controls="pp" aria-selected="true" data-p="1"><span class="n n1">1</span>Implicación</button>
+        <button class="tab" role="tab" id="t2" aria-controls="pp" aria-selected="false" data-p="2"><span class="n n2">2</span>Representación</button>
+        <button class="tab" role="tab" id="t3" aria-controls="pp" aria-selected="false" data-p="3"><span class="n n3">3</span>Acción y expresión</button>
+      </div>
+      <div class="panel c1" id="pp" role="tabpanel" aria-labelledby="t1">
+        <div class="stack" style="gap:1.1rem">
+          <span class="net" id="pp-net">Redes afectivas</span>
+          <p class="q" id="pp-q">¿Por qué aprendo?</p>
+          <p id="pp-text">Busca despertar el interés, sostener el esfuerzo y ayudar a que cada estudiante maneje sus emociones mientras aprende. Un estudiante que no encuentra sentido a la tarea se desconecta, aunque pueda hacerla.</p>
+          <p class="tip" id="pp-tip"><b>Pruébalo mañana:</b> empieza la clase contando para qué les va a servir lo que van a aprender.</p>
+        </div>
+        <ul id="pp-list">
+          <li>Dejar elegir el tema, el compañero o el material.</li>
+          <li>Explicar para qué sirve lo que van a aprender.</li>
+          <li>Dar retroalimentación frecuente y celebrar el avance.</li>
+        </ul>
+      </div>
+
+      <div class="split" style="margin-top:3rem">
+        <figure class="info-img" id="slot-infografia">
+          <button type="button" class="info-open" data-open-info="0" aria-label="Ver la infografía en grande">
+            <img src="infografia-dua.jpg" alt="Infografía DUA, Diseño Universal para el Aprendizaje: qué es, una idea que lo cambia todo, se basa en la variabilidad, los 3 principios (1. Implicación, el porqué del aprendizaje; 2. Representación, el qué; 3. Acción y expresión, el cómo) con sus estrategias, cuál es la meta, por qué es importante y cómo se aplica en inicial, primaria y secundaria." width="1024" height="1536">
+          </button>
+          <figcaption>Toca la infografía para verla en grande.</figcaption>
+        </figure>
+        <div class="card" style="padding:2rem">
+          <span class="eyebrow">Mira cómo funciona</span>
+          <h3>La app DUA en Acción</h3>
+          <video class="demo-vid" src="app-demo.mp4" muted loop playsinline autoplay preload="metadata" width="870" height="720" aria-label="Demostración de la app DUA en Acción: al tocar cada parte de la rueda aparecen las estrategias de esa pauta"></video>
+          <p>Cada parte de la rueda es una de las 9 pautas del DUA. Al tocarla aparecen estrategias de ejemplo para el inicio, el desarrollo y el cierre de tu clase. Con el planificador armas una clase con opciones para todo tu grupo.</p>
+          <div class="btn-row"><a class="btn" href="#app">Quiero la app</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apartado 3 -->
+  <div class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Apartado 3</span>
+        <h2>La misma clase, <em>dos diseños</em></h2>
+        <p class="lead">Una clase de inglés de 4to de primaria: leer un cuento corto y contar qué pasó. En cada momento de la clase, mira qué barrera crea el diseño tradicional y cómo la quita el DUA.</p>
+      </div>
+            <div class="compare">
+        <div class="row head-row"><span></span><span class="head muted">Diseño tradicional</span><span class="head" style="color:var(--accent)">Diseño con DUA</span></div>
+        <div class="row"><span class="k">La meta</span><span class="old">“Lean el cuento y respondan cinco preguntas.”<span class="barrier"><b>Barrera:</b> Mezcla lo que deben aprender con la forma de demostrarlo, y nadie sabe para qué sirve.</span></span><span class="new">“Hoy vamos a contar qué pasó en el cuento: el inicio, el problema y el final.” La meta se dice al empezar, queda escrita en la pizarra y se muestra un ejemplo de lo que se espera.</span></div>
+        <div class="row"><span class="k">Cómo llega el cuento</span><span class="old">Cada estudiante recibe el texto impreso y lo lee solo, en silencio.<span class="barrier"><b>Barrera:</b> Hay un solo camino para entrar al texto. Quien lee despacio o recién aprende el idioma se queda atrás desde el inicio.</span></span><span class="new">La docente lee el cuento en voz alta una vez, con imágenes en la pantalla. Las seis palabras clave quedan en la pizarra con un dibujo cada una.</span></div>
+        <div class="row"><span class="k">Cómo participan</span><span class="old">Cada uno responde en su asiento, sin hablar.<span class="barrier"><b>Barrera:</b> Quien necesita moverse o conversar no puede, y quien se traba no tiene a quién recurrir.</span></span><span class="new">Pueden releer solos, en pareja o en una mesa de apoyo con la docente. Para todos hay un organizador de tres casillas: inicio, problema y final.</span></div>
+        <div class="row"><span class="k">Cómo demuestran</span><span class="old">Cinco preguntas escritas en inglés.<span class="barrier"><b>Barrera:</b> Se evalúa la escritura, no la comprensión. Quien entiende el cuento pero todavía no escribe bien en inglés no lo puede mostrar.</span></span><span class="new">Cada uno elige: escribir, dibujar las tres escenas con una oración debajo o grabar un audio. Todos se evalúan con la misma lista de cotejo, centrada en la meta.</span></div>
+        <div class="row"><span class="k">Quien necesita más apoyo</span><span class="old">Cuando ya se quedó atrás, la docente le prepara una ficha aparte.<span class="barrier"><b>Barrera:</b> El apoyo llega tarde, solo para un estudiante y marcándolo frente al grupo.</span></span><span class="new">Los apoyos se planifican antes de la clase y quedan a la vista de todos: el audio, las palabras con dibujos y el organizador. Cada estudiante toma el que necesita, sin que nadie quede señalado.</span></div>
+        <div class="row"><span class="k">Quien termina primero</span><span class="old">Espera sin hacer nada, o recibe más preguntas iguales.<span class="barrier"><b>Barrera:</b> No hay reto: hace más de lo mismo y se desconecta.</span></span><span class="new">Tiene un reto extra sobre la misma meta, pero más profundo: inventar otro final y explicar cómo cambia la solución del problema, o contar el cuento desde otro personaje manteniendo el inicio, el problema y el final.</span></div>
+      </div>
+      <p class="dt-rule">La meta no cambió. Cambiaron los caminos para llegar a ella, y se planificaron antes de la clase, no después.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="band rose on-dark">
+    <div class="wrap split">
+      <div class="stack prose">
+        <span class="eyebrow">Desde mi aula</span>
+        <h2>Cuando tuvieron <em>voz y elección</em></h2>
+        <p>Enseño inglés en 4to de primaria y trabajo junto a maestras sombra. Cuando mis estudiantes tienen que explicar lo que entendieron, uso un tablero de elección: cada uno decide si lo muestra con un dibujo, post-its de colores, un organizador gráfico, fotos, un video o un audio.</p>
+        <p>La meta es la misma para todos; cambia el camino.</p>
+      </div>
+      <blockquote class="pull">
+        <p>"Trabajaron con más ganas, con más ímpetu, y me pidieron repetir la actividad."</p>
+        <cite>Lo que pasó cuando mis estudiantes de 4to pudieron elegir</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap refs stack" style="gap:.6rem">
+      <h3>Referencias</h3>
+      <p>Alba Pastor, C. (2016). <i>Diseño Universal para el Aprendizaje: educación para todos y prácticas de enseñanza inclusivas</i>. Morata.</p>
+      <p>CAST. (2024). <i>Universal Design for Learning Guidelines version 3.0</i>. https://udlguidelines.cast.org</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PÁGINA 3 · PODCAST ================= -->
+<section data-view="podcast" hidden>
+  <div class="band plum on-dark">
+    <div class="wrap split">
+      <div class="stack" style="gap:1.3rem">
+        <span class="eyebrow">Podcast educativo · Episodio 1</span>
+        <h1>¿Qué es el Diseño Universal para el Aprendizaje y <em>por qué importa</em>?</h1>
+        <div class="author">
+          <div>
+            <p class="author-name">Cinthya Roque</p>
+            <p class="author-role">Autora y voz del podcast · 7 min</p>
+          </div>
+        </div>
+        <p class="lead">Un episodio para revisar, sin culpas, algunas cosas que hacemos en el aula y que dejan fuera a muchos estudiantes. Te cuento qué propone el DUA y te muestro un ejemplo de mi clase de inglés de 4to de primaria.</p>
+      </div>
+      <div class="pod-visual">
+        <img class="pod-photo" src="podcast-foto.jpg" alt="Cinthya Roque grabando el podcast con audífonos y micrófono" width="966" height="528">
+        <div class="listen" id="slot-audio">
+        <audio id="pod" src="podcast-dua.mp3" preload="metadata"></audio>
+        <div class="listen-top">
+          <button type="button" class="listen-play" id="pod-play" aria-label="Reproducir el episodio"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="pod-icon" d="M8 5.5v13l11-6.5z"/></svg></button>
+          <div>
+            <p class="listen-show">DUA en Acción · Episodio 1</p>
+            <p class="listen-title">¿Qué es el Diseño Universal para el Aprendizaje y por qué importa?</p>
+          </div>
+        </div>
+        <div class="listen-wave" id="pod-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <label class="sr-only" for="pod-seek">Avance del episodio</label>
+        <input type="range" id="pod-seek" class="pod-seek" min="0" max="433" step="1" value="0">
+        <div class="listen-time"><span id="pod-cur">0:00</span><span id="pod-dur">7:13</span></div>
+        <div class="listen-actions">
+          <button type="button" class="pod-btn" data-skip="-15" aria-label="Retroceder 15 segundos">−15 s</button>
+          <button type="button" class="pod-btn" data-skip="15" aria-label="Adelantar 15 segundos">+15 s</button>
+          <button type="button" class="pod-btn" id="pod-rate" aria-label="Velocidad de reproducción">1×</button>
+        </div>
+        <p class="listen-note">También puedes escucharlo y suscribirte en <a href="https://rss.com/podcasts/dua-en-accion/3262508" target="_blank" rel="noopener" style="color:#4A1E36;font-weight:700">RSS.com</a>.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap split" style="align-items:start">
+      <div class="stack prose">
+        <span class="eyebrow">Propósito</span>
+        <h2>¿Para qué <em>escucharlo</em>?</h2>
+        <p>Este podcast refuerza lo que trabajaste en la página "El tema". Te ayuda a reconocer prácticas comunes que generan barreras, recordar los tres principios del DUA con un caso real y pensar en un cambio concreto para tu propio grupo.</p>
+        <p class="muted">Puedes escucharlo de camino al colegio o mientras preparas tu clase.</p>
+      </div>
+      <div class="stack">
+        <h3>En este episodio</h3>
+        <ol class="steps">
+          <li><span class="n">1</span><div><b>Introducción: una escena que conoces</b><span class="muted">El estudiante que "no quiere aprender".</span></div></li>
+          <li><span class="n">2</span><div><b>Desarrollo: lo que estamos haciendo mal</b><span class="muted">El estudiante promedio no existe y los tres principios del DUA.</span></div></li>
+          <li><span class="n">3</span><div><b>Ejemplo práctico: mi aula de 4to</b><span class="muted">El tablero de elección en 4to de primaria.</span></div></li>
+          <li><span class="n">4</span><div><b>Conclusión: tu primer paso</b><span class="muted">Un reto pequeño para tu próxima clase y el mensaje final.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="band rose on-dark">
+    <div class="wrap stack reflect" style="gap:1.2rem;max-width:860px">
+      <span class="eyebrow">Pregunta de reflexión</span>
+      <p class="quote" style="color:#FFFFFF">Piensa en tu próxima clase: ¿qué barrera podría encontrar alguno de tus estudiantes, y qué opción podrías ofrecer desde el inicio para quitarla?</p>
+      <label for="reflexion">Escribe tu respuesta. Se guarda solo en tu navegador.</label>
+      <textarea id="reflexion" placeholder="En mi próxima clase de…"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PÁGINA 4 · EBOOK Y APP ================= -->
+<section data-view="app" hidden>
+  <div class="band plum on-dark">
+    <div class="wrap product">
+      <figure class="hero-art" id="slot-app">
+        <video class="demo-vid" src="app-demo.mp4" muted loop playsinline autoplay preload="metadata" width="870" height="720" aria-label="Demostración de la app DUA en Acción: al tocar cada parte de la rueda aparecen las estrategias de esa pauta"></video>
+        <figcaption class="demo-cap">Así funciona: tocas una parte de la rueda y aparecen las estrategias.</figcaption>
+      </figure>
+      <div class="stack" style="gap:1.2rem">
+        <span class="eyebrow">La app</span>
+        <h1 style="font-size:clamp(2.4rem,5.5vw,4rem)">DUA en <em>Acción</em></h1>
+        <p class="lead">Tu compañera para planificar con DUA. En lugar de empezar de cero, tocas la parte de la rueda que necesitas, eliges entre estrategias listas para usar y armas una clase con opciones para todo tu grupo.</p>
+        <ul class="features">
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span>Rueda interactiva con los tres principios y ejemplos para el aula.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span>Planificador DUA para armar tu clase paso a paso.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span>Ideas para evaluar la evidencia: lista de cotejo, rúbrica y registro de apoyos.</span></li>
+        </ul>
+        <span class="bonus">De regalo: el ebook DUA en Acción</span>
+        <div class="price">USD 20 <span class="price-note">· pago único</span></div>
+        <div class="btn-row"><a class="btn" data-link="comprar">Quiero la app</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap product">
+      <div class="stack" style="gap:1.2rem">
+        <span class="eyebrow">El bono</span>
+        <h2>DUA en Acción: <em>una guía práctica</em></h2>
+        <p class="lead">Una guía práctica de 43 páginas para entender el DUA y llevarlo el lunes a tu aula, sin importar si trabajas en inicial, primaria o secundaria.</p>
+        <ul class="toc">
+          <li><b>11 capítulos</b> con los tres principios, las nueve pautas y ejemplos por nivel.</li>
+          <li><b>Planificar paso a paso</b>, feedback que ayuda a aprender y DUA con inteligencia artificial.</li>
+          <li><b>Caja de herramientas</b>: checklist, plantilla de planificación, qué hacer y qué evitar, banco de prompts y glosario.</li>
+          <li><b>Si trabajas en Bolivia</b>, su relación con el Diseño Plural para los Aprendizajes (R.M. 1040/2022).</li>
+        </ul>
+        <p>Viene de regalo con la app. Mira algunas páginas antes de decidir.</p>
+        <div class="btn-row"><button class="btn ghost" type="button" data-open-page="0">Ver páginas de muestra</button></div>
+      </div>
+      <button class="ebook-cover" type="button" data-open-page="0" aria-label="Ver la portada del ebook en grande">
+        <img src="ebook-p1.jpg" alt="Portada del ebook DUA en Acción de Cinthya's Hub" width="630" height="945">
+      </button>
+    </div>
+    <div class="wrap" style="margin-top:2.5rem">
+      <p class="eyebrow" style="margin-bottom:1rem">Páginas de muestra</p>
+      <div class="pages">
+        <button type="button" class="page-thumb" data-open-page="1"><img src="ebook-p3.jpg" alt="" loading="lazy" width="694" height="1039"><span>Índice</span></button>
+        <button type="button" class="page-thumb" data-open-page="2"><img src="ebook-p5.jpg" alt="" loading="lazy" width="694" height="1039"><span>El cambio de mirada</span></button>
+        <button type="button" class="page-thumb" data-open-page="3"><img src="ebook-p9.jpg" alt="" loading="lazy" width="694" height="1039"><span>El mapa del DUA</span></button>
+        <button type="button" class="page-thumb" data-open-page="4"><img src="ebook-p34.jpg" alt="" loading="lazy" width="694" height="1039"><span>Checklist DUA</span></button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="band alt">
+    <div class="wrap split">
+      <div class="stack prose">
+        <span class="eyebrow">¿No sabes por dónde empezar?</span>
+        <h2>Ven primero al <em>taller</em></h2>
+        <p>En el taller usamos la app en vivo y planificamos juntos una clase con DUA. Así la conoces antes de tenerla.</p>
+      </div>
+      <div class="btn-row"><a class="btn" href="#talleres">Ver el próximo taller</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PÁGINA 5 · RECURSOS GRATIS ================= -->
+<section data-view="recursos" hidden>
+  <div class="band plum on-dark">
+    <div class="wrap split">
+      <div class="stack prose" style="gap:1.3rem">
+        <span class="eyebrow">Recursos gratis</span>
+        <h1>¿Tu clase tiene <em>DUA</em>?</h1>
+        <p class="lead">Piensa en una clase que ya tengas planificada. Marca lo que ya haces y descubre qué principio puedes fortalecer.</p>
+      </div>
+      <figure class="hero-art">
+        <img src="puertas-dua.jpg" alt="Tres puertas abiertas: ¿Por qué? Implicación. ¿Qué? Representación. ¿Cómo? Acción y expresión. Un aula, muchas puertas." width="1536" height="1024" loading="lazy">
+      </figure>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap split" style="align-items:start">
+      <div class="checklist" id="checklist">
+        <div class="check-group" data-group="1">
+          <header><div><span class="dot n1" aria-hidden="true">1</span><h3>Implicación</h3></div><span class="meter" aria-hidden="true"><span></span><span></span><span></span></span></header>
+          <label class="check"><input type="checkbox" id="c1"><span>Mis estudiantes saben para qué sirve lo que van a aprender.</span></label>
+          <label class="check"><input type="checkbox" id="c2"><span>Ofrezco al menos una decisión en la clase: tema, compañero, material o formato.</span></label>
+          <label class="check"><input type="checkbox" id="c3"><span>Hay momentos para revisar su avance y recibir retroalimentación.</span></label>
+        </div>
+        <div class="check-group" data-group="2">
+          <header><div><span class="dot n2" aria-hidden="true">2</span><h3>Representación</h3></div><span class="meter" aria-hidden="true"><span></span><span></span><span></span></span></header>
+          <label class="check"><input type="checkbox" id="c4"><span>Presento la información de más de una forma: texto, imagen, audio u objeto real.</span></label>
+          <label class="check"><input type="checkbox" id="c5"><span>Explico el vocabulario nuevo con apoyos visuales o ejemplos.</span></label>
+          <label class="check"><input type="checkbox" id="c6"><span>Conecto el tema con lo que ya saben o viven.</span></label>
+        </div>
+        <div class="check-group" data-group="3">
+          <header><div><span class="dot n3" aria-hidden="true">3</span><h3>Acción y expresión</h3></div><span class="meter" aria-hidden="true"><span></span><span></span><span></span></span></header>
+          <label class="check"><input type="checkbox" id="c7"><span>Pueden mostrar lo que aprendieron de más de una manera.</span></label>
+          <label class="check"><input type="checkbox" id="c8"><span>Tienen a mano apoyos como organizadores gráficos, modelos o bancos de palabras.</span></label>
+          <label class="check"><input type="checkbox" id="c9"><span>Los ayudo a planificar y revisar su propio trabajo.</span></label>
+        </div>
+      </div>
+      <div class="stack sticky-col">
+        <div class="result on-dark" aria-live="polite" style="background:var(--rose);color:#FFFFFF">
+          <span class="eyebrow">Tu clase hoy</span>
+          <span class="score"><span id="score">0</span>/9</span>
+          <p id="score-msg">Marca lo que ya haces en tu clase.</p>
+        </div>
+        <button class="small-btn" type="button" id="reset">Empezar de nuevo</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="band alt">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Gratis, por WhatsApp</span><h2>Materiales <em>listos para usar</em></h2></div>
+      <div class="grid g3">
+        <article class="card"><h3>Plantilla de planificación DUA</h3><p class="muted">Una hoja para planificar tu clase con opciones en los tres principios.</p><div class="btn-row" style="margin-top:auto"><a class="btn" data-link="recurso1">Pedirla por WhatsApp</a></div></article>
+        <article class="card"><h3>Tablero de elección</h3><p class="muted">Seis formas de mostrar lo aprendido para que tus estudiantes elijan la suya.</p><div class="btn-row" style="margin-top:auto"><a class="btn" data-link="recurso2">Pedirlo por WhatsApp</a></div></article>
+        <article class="card"><h3>Lista DUA para imprimir</h3><p class="muted">La misma lista de esta página, en una hoja para tener junto a tu planificación.</p><div class="btn-row" style="margin-top:auto"><a class="btn" data-link="recurso3">Pedirla por WhatsApp</a></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PÁGINA 6 · TALLERES ================= -->
+<section data-view="talleres" hidden>
+  <div class="band plum on-dark">
+    <div class="wrap stack prose" style="gap:1.3rem">
+      <span class="eyebrow">Talleres</span>
+      <h1>Aprende DUA <em>en compañía</em></h1>
+      <p class="lead">Talleres prácticos para docentes. Sales con una clase planificada y con ideas que puedes usar la misma semana.</p>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap split" style="align-items:stretch">
+      <div class="card" style="padding:2rem">
+        <span class="bonus">Próximo taller · Bs 50</span>
+        <h2 style="font-size:clamp(1.8rem,3.6vw,2.6rem)">DUA en Acción: <em>planifica una clase para todos</em></h2>
+        <p>Conocemos los tres principios con ejemplos reales y planificamos juntos una clase con opciones para todo el grupo, usando la app DUA en Acción.</p>
+        <ul style="margin:0;padding-left:1.1rem">
+          <li>Identificar barreras en una clase que ya tienes.</li>
+          <li>Agregar opciones en los tres principios.</li>
+          <li>Llevarte tu planificación terminada.</li>
+        </ul>
+        <div class="btn-row" style="margin-top:.5rem"><a class="btn" data-link="formTaller">Quiero inscribirme</a></div>
+      </div>
+      <div class="card" style="padding:2rem">
+        <dl class="facts">
+          <div><dt>Fecha</dt><dd><b>Próximamente.</b> Inscríbete y te aviso la fecha y la hora.</dd></div>
+          <div><dt>Modalidad</dt><dd>Virtual en vivo (Zoom o Meet)</dd></div>
+          <div><dt>Duración</dt><dd>75 minutos</dd></div>
+          <div><dt>Para</dt><dd>Docentes de primaria y maestras de apoyo</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="band alt">
+    <div class="wrap grid g2" style="align-items:start;gap:2rem">
+      <div class="stack">
+        <span class="eyebrow">Talleres anteriores</span>
+        <article class="card">
+          <h3>IA para diseñar experiencias de aprendizaje</h3>
+          <p class="muted">2026 · Taller para docentes</p>
+          <p>Cada participante aprendió a crear su propia app educativa con inteligencia artificial, paso a paso y sin saber programar.</p>
+        </article>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Contacto</span>
+        <article class="card">
+          <h3>¿Quieres un taller para tu colegio?</h3>
+          <p>Escríbeme por WhatsApp:</p>
+          <div class="copy-line"><code id="wa">+591 78884586</code><button class="small-btn" type="button" data-copy="wa">Copiar</button></div>
+          <div class="btn-row"><a class="btn" data-link="contacto">Escribirme por WhatsApp</a><a class="btn ghost" data-link="tiktok">Sígueme en TikTok</a></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Páginas de muestra del ebook" hidden>
+    <div class="viewer-box">
+      <div class="viewer-bar">
+        <span id="viewer-label">Portada</span>
+        <button type="button" class="small-btn" id="viewer-close">Cerrar</button>
+      </div>
+      <img id="viewer-img" src="ebook-p1.jpg" alt="">
+      <div class="viewer-nav">
+        <button type="button" class="small-btn" id="viewer-prev">← Anterior</button>
+        <span id="viewer-count" class="muted">1 de 5</span>
+        <button type="button" class="small-btn" id="viewer-next">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <span class="logo-badge"><img src="logo-c.png" alt="Logo de Cinthya's Hub"></span>
+      <div><b>Cinthya's <span class="hub">Hub</span></b><p>Educación que inspira, ideas que transforman</p></div>
+    </div>
+    <p class="credit">Proyecto final del módulo. Maestría en Educación, Universidad La Salle Bolivia. Autora: Cinthya Roque.</p>
+  </div>
+</footer>
+
+<script>
+/* Enlaces del sitio: pega aquí cada enlace cuando lo tengas. Si queda vacío, el botón muestra "enlace pendiente". */
+/* WhatsApp de Cinthya's Hub: cada botón abre el chat con un mensaje ya escrito */
+const WA = "59178884586";
+const wa = msg => "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+const LINKS = {
+  comprar: wa("Hola Cinthya, vi tu sitio DUA en Acción y quiero la app con el ebook de regalo."),
+  recurso1: wa("Hola Cinthya, vi tu sitio DUA en Acción y quiero la plantilla de planificación DUA."),
+  recurso2: wa("Hola Cinthya, vi tu sitio DUA en Acción y quiero el tablero de elección."),
+  recurso3: wa("Hola Cinthya, vi tu sitio DUA en Acción y quiero la lista DUA para imprimir."),
+  formTaller: wa("Hola Cinthya, quiero inscribirme al próximo taller DUA en Acción. Avísame la fecha, por favor."),
+  contacto: wa("Hola Cinthya, quiero información sobre un taller para mi colegio."),
+  tiktok: ""       // Perfil de TikTok: cuando lo tengas, pega aquí el enlace y el botón aparece
+};
+document.querySelectorAll("[data-link]").forEach(a => {
+  const url = LINKS[a.dataset.link];
+  if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
+  else { a.hidden = true; }
+});
+
+/* Páginas */
+const VIEWS = ["inicio", "tema", "podcast", "app", "recursos", "talleres"];
+function show(name, scroll) {
+  if (!VIEWS.includes(name)) name = "inicio";
+  document.querySelectorAll("[data-view]").forEach(s => { s.hidden = s.dataset.view !== name; });
+  document.querySelectorAll("[data-nav]").forEach(a => {
+    if (a.dataset.nav === name) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  const cur = document.querySelector('[data-nav="' + name + '"]');
+  if (cur) cur.scrollIntoView({block: "nearest", inline: "nearest"});
+  if (scroll) window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", () => show(location.hash.slice(1), true));
+show(location.hash.slice(1), false);
+
+/* Tarjetas que giran */
+document.querySelectorAll(".flip").forEach(b => b.addEventListener("click", () => {
+  b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+}));
+
+/* Principios */
+const P = {
+  1: {net: "Redes afectivas", q: "¿Por qué aprendo?", text: "Busca despertar el interés, sostener el esfuerzo y ayudar a que cada estudiante maneje sus emociones mientras aprende. Un estudiante que no encuentra sentido a la tarea se desconecta, aunque pueda hacerla.", tip: "empieza la clase contando para qué les va a servir lo que van a aprender.", list: ["Dejar elegir el tema, el compañero o el material.", "Explicar para qué sirve lo que van a aprender.", "Dar retroalimentación frecuente y celebrar el avance."]},
+  2: {net: "Redes de reconocimiento", q: "¿Qué aprendo?", text: "Presenta la información de varias formas, porque no todos percibimos ni comprendemos igual un mismo contenido. Si el tema solo llega por un canal, quien no puede usar ese canal se queda afuera.", tip: "acompaña tu próxima explicación con una imagen y un ejemplo de la vida real.", list: ["Combinar texto, imágenes, audio y objetos reales.", "Enseñar el vocabulario nuevo con apoyo visual.", "Usar organizadores gráficos y conectar con lo que ya saben."]},
+  3: {net: "Redes estratégicas", q: "¿Cómo aprendo?", text: "Ofrece distintas maneras de demostrar lo aprendido y apoya la planificación del propio trabajo. Un estudiante puede entender muy bien un tema y no lograr mostrarlo por escrito.", tip: "en tu próxima tarea, da dos formas posibles de entregarla.", list: ["Permitir escribir, dibujar, grabar un audio o un video.", "Ofrecer modelos, bancos de palabras y plantillas.", "Ayudar a fijar metas y revisar el propio trabajo."]}
+};
+const panel = document.getElementById("pp");
+const tabs = [...document.querySelectorAll(".tab")];
+function pick(n) {
+  const d = P[n];
+  tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.p === String(n) ? "true" : "false"));
+  panel.className = "panel c" + n;
+  panel.setAttribute("aria-labelledby", "t" + n);
+  document.getElementById("pp-net").textContent = d.net;
+  document.getElementById("pp-q").textContent = d.q;
+  document.getElementById("pp-text").textContent = d.text;
+  document.getElementById("pp-tip").innerHTML = "<b>Pruébalo mañana:</b> " + d.tip;
+  const ul = document.getElementById("pp-list");
+  ul.textContent = "";
+  d.list.forEach(x => { const li = document.createElement("li"); li.textContent = x; ul.appendChild(li); });
+}
+tabs.forEach(t => t.addEventListener("click", () => pick(Number(t.dataset.p))));
+tabs.forEach((t, i) => t.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+    const j = (i + (e.key === "ArrowRight" ? 1 : 2)) % 3; tabs[j].focus(); pick(j + 1);
+  }
+}));
+
+/* Lista DUA */
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const boxes = [...document.querySelectorAll("#checklist input")];
+const saved = store.get("dua-checklist") || {};
+boxes.forEach(b => { b.checked = !!saved[b.id]; });
+const names = {1: "implicación", 2: "representación", 3: "acción y expresión"};
+function update() {
+  const state = {}; let total = 0; const per = {};
+  document.querySelectorAll(".check-group").forEach(g => {
+    const n = [...g.querySelectorAll("input")].filter(i => i.checked).length;
+    per[g.dataset.group] = n; total += n;
+    g.querySelectorAll(".meter span").forEach((s, i) => s.classList.toggle("on", i < n));
+  });
+  boxes.forEach(b => { state[b.id] = b.checked; });
+  store.set("dua-checklist", state);
+  document.getElementById("score").textContent = total;
+  const low = Object.keys(per).sort((a, b) => per[a] - per[b])[0];
+  let msg;
+  if (total === 0) msg = "Marca lo que ya haces en tu clase.";
+  else if (total <= 3) msg = "Buen punto de partida. Elige un solo cambio para tu próxima clase, por ejemplo en " + names[low] + ".";
+  else if (total <= 6) msg = "Tu clase ya ofrece varios caminos. El principio con más espacio para crecer es " + names[low] + ".";
+  else if (total < 9) msg = "Tu clase está muy cerca. Revisa " + names[low] + " para completar el diseño.";
+  else msg = "Tu clase ofrece opciones en los tres principios. Compártela con un colega.";
+  document.getElementById("score-msg").textContent = msg;
+}
+boxes.forEach(b => b.addEventListener("change", update));
+document.getElementById("reset").addEventListener("click", () => { boxes.forEach(b => { b.checked = false; }); update(); });
+update();
+
+/* Reflexión */
+const ta = document.getElementById("reflexion");
+ta.value = store.get("dua-reflexion") || "";
+ta.addEventListener("input", () => store.set("dua-reflexion", ta.value));
+
+/* Visor de páginas del ebook */
+const PAGES = [
+  {src: "ebook-p1.jpg", label: "Portada"},
+  {src: "ebook-p3.jpg", label: "Índice"},
+  {src: "ebook-p5.jpg", label: "El cambio de mirada"},
+  {src: "ebook-p9.jpg", label: "El mapa del DUA"},
+  {src: "ebook-p34.jpg", label: "Checklist DUA"}
+];
+const INFO = [{src: "infografia-dua.jpg", label: "Infografía: el DUA"}];
+const viewer = document.getElementById("viewer");
+const vImg = document.getElementById("viewer-img");
+const vNav = document.querySelector(".viewer-nav");
+let vSet = PAGES, vIdx = 0, vReturn = null;
+function setPage(i) {
+  vIdx = (i + vSet.length) % vSet.length;
+  vImg.src = vSet[vIdx].src;
+  vImg.alt = vSet === PAGES ? "Página de muestra del ebook: " + vSet[vIdx].label : vSet[vIdx].label;
+  document.getElementById("viewer-label").textContent = vSet[vIdx].label;
+  document.getElementById("viewer-count").textContent = (vIdx + 1) + " de " + vSet.length;
+}
+function openViewer(set, i, from) {
+  vSet = set; vReturn = from; vNav.hidden = set.length < 2;
+  viewer.setAttribute("aria-label", set === PAGES ? "Páginas de muestra del ebook" : "Infografía del DUA");
+  setPage(i); viewer.hidden = false; document.getElementById("viewer-close").focus();
+}
+function closeViewer() { viewer.hidden = true; if (vReturn) vReturn.focus(); }
+document.querySelectorAll("[data-open-page]").forEach(b => b.addEventListener("click", () => openViewer(PAGES, Number(b.dataset.openPage), b)));
+document.querySelectorAll("[data-open-info]").forEach(b => b.addEventListener("click", () => openViewer(INFO, 0, b)));
+document.getElementById("viewer-close").addEventListener("click", closeViewer);
+document.getElementById("viewer-prev").addEventListener("click", () => setPage(vIdx - 1));
+document.getElementById("viewer-next").addEventListener("click", () => setPage(vIdx + 1));
+viewer.addEventListener("click", e => { if (e.target === viewer) closeViewer(); });
+viewer.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeViewer();
+  if (e.key === "ArrowRight") setPage(vIdx + 1);
+  if (e.key === "ArrowLeft") setPage(vIdx - 1);
+});
+
+/* Reel del inicio: arranca solo, en silencio y en bucle */
+(function(){
+  const v=document.getElementById("reel"); if(!v) return;
+  const play=document.getElementById("reel-play"), icon=document.getElementById("reel-play-icon"), snd=document.getElementById("reel-sound");
+  const PAUSE="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z", PLAY="M8 5.5v13l11-6.5z";
+  const sync=()=>{ const p=v.paused; icon.setAttribute("d", p?PLAY:PAUSE); play.setAttribute("aria-label", p?"Reproducir el reel":"Pausar el reel"); };
+  const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduce){ v.play().catch(()=>{}); }
+  v.addEventListener("play",sync); v.addEventListener("pause",sync); sync();
+  play.addEventListener("click",()=>{ v.paused? v.play().catch(()=>{}) : v.pause(); });
+  snd.addEventListener("click",()=>{
+    v.muted=!v.muted; snd.setAttribute("aria-pressed", v.muted?"false":"true");
+    snd.textContent=v.muted?"Activar sonido":"Silenciar";
+    if(!v.muted && v.paused) v.play().catch(()=>{});
+  });
+  document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",()=>{ if(a.dataset.nav!=="inicio") v.pause(); }));
+})();
+
+/* Reproductor del podcast */
+(function(){
+  const a=document.getElementById("pod"); if(!a) return;
+  const btn=document.getElementById("pod-play"), icon=document.getElementById("pod-icon"), seek=document.getElementById("pod-seek");
+  const cur=document.getElementById("pod-cur"), dur=document.getElementById("pod-dur"), bars=[...document.querySelectorAll("#pod-wave span")], rate=document.getElementById("pod-rate");
+  const PLAY="M8 5.5v13l11-6.5z", PAUSE="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z";
+  const fmt=s=>{ s=Math.max(0,Math.floor(s||0)); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); };
+  const sync=()=>{ const p=a.paused; icon.setAttribute("d",p?PLAY:PAUSE); btn.setAttribute("aria-label",p?"Reproducir el episodio":"Pausar el episodio"); btn.classList.toggle("playing",!p); };
+  const tick=()=>{ const d=a.duration||433; seek.max=Math.floor(d); seek.value=Math.floor(a.currentTime); cur.textContent=fmt(a.currentTime);
+    const n=Math.round(bars.length*a.currentTime/d); bars.forEach((b,i)=>b.classList.toggle("done",i<n)); };
+  a.addEventListener("loadedmetadata",()=>{ dur.textContent=fmt(a.duration); seek.max=Math.floor(a.duration); });
+  a.addEventListener("timeupdate",tick); a.addEventListener("play",sync); a.addEventListener("pause",sync); a.addEventListener("ended",sync);
+  btn.addEventListener("click",()=>{ if(a.paused){ const r=document.getElementById("reel"); if(r) r.pause(); a.play().catch(()=>{}); } else a.pause(); });
+  seek.addEventListener("input",()=>{ a.currentTime=Number(seek.value); tick(); });
+  document.querySelectorAll("[data-skip]").forEach(b=>b.addEventListener("click",()=>{ a.currentTime=Math.min(Math.max(0,a.currentTime+Number(b.dataset.skip)),a.duration||433); tick(); }));
+  const rates=[1,1.25,1.5,0.75]; let ri=0;
+  rate.addEventListener("click",()=>{ ri=(ri+1)%rates.length; a.playbackRate=rates[ri]; rate.textContent=String(rates[ri]).replace(".",",")+"×"; });
+  document.querySelectorAll("[data-nav]").forEach(l=>l.addEventListener("click",()=>{ if(l.dataset.nav!=="podcast") a.pause(); }));
+  sync();
+})();
+
+/* Pantalla completa (solo donde el navegador lo permite) */
+(function(){
+  const b=document.getElementById("fs-btn"), icon=document.getElementById("fs-icon"), el=document.documentElement;
+  const req=el.requestFullscreen||el.webkitRequestFullscreen;
+  if(!b||!req||!(document.fullscreenEnabled||document.webkitFullscreenEnabled)) return;
+  b.hidden=false;
+  const isFs=()=>!!(document.fullscreenElement||document.webkitFullscreenElement);
+  const sync=()=>{ const f=isFs(); icon.setAttribute("d", f?"M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5":"M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"); b.setAttribute("aria-label", f?"Salir de pantalla completa":"Ver en pantalla completa"); b.title=f?"Salir de pantalla completa":"Pantalla completa"; };
+  b.addEventListener("click",()=>{ try{ if(isFs()){ (document.exitFullscreen||document.webkitExitFullscreen).call(document); } else { const p=req.call(el); if(p&&p.catch) p.catch(()=>{ b.hidden=true; }); } }catch(e){ b.hidden=true; } });
+  document.addEventListener("fullscreenchange",sync); document.addEventListener("webkitfullscreenchange",sync); sync();
+})();
+
+/* La misma clase, dos diseños */
+(function(){
+  const list=document.getElementById("moments"); if(!list) return;
+  const sum=document.getElementById("dt-summary"), btns=[...document.querySelectorAll(".dt-btn")];
+  const TXT={trad:"<b>Se quedan afuera en algún momento:</b> Lucía, Mateo, Sara y Tomás. Los cuatro.",
+             dua:"<b>Participan en toda la clase:</b> Lucía, Mateo, Sara y Tomás. Con una sola planificación."};
+  function set(m){ list.dataset.mode=m; sum.innerHTML=TXT[m]; btns.forEach(b=>b.setAttribute("aria-pressed", b.dataset.mode===m?"true":"false")); }
+  btns.forEach(b=>b.addEventListener("click",()=>set(b.dataset.mode)));
+})();
+
+/* Copiar número */
+document.querySelectorAll("[data-copy]").forEach(btn => {
+  btn.addEventListener("click", async () => {
+    const el = document.getElementById(btn.dataset.copy);
+    try { await navigator.clipboard.writeText(el.textContent.trim()); btn.textContent = "Copiado"; }
+    catch (e) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Seleccionado"; }
+    setTimeout(() => { btn.textContent = "Copiar"; }, 2000);
+  });
+});
+</script>
+
+</body>
+</html>
